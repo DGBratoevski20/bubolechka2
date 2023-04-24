@@ -118,7 +118,25 @@ class BuboCategoryListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      _viewWithContainer(),
+      Row(
+  mainAxisAlignment: MainAxisAlignment.start,
+  children: [
+    RotatedBox(
+      quarterTurns: 3,
+      child: Text(
+        category.translatedLabels[language]!,
+        style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+            color: Colors.purple),
+      ),
+    ),
+    Image.asset(category.image, width: 250, fit: BoxFit.fill),
+  ],
+),
+      Container(
+        height: 10,
+      )
       //_viewWithStack(),
     ]);
   }
