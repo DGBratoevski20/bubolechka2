@@ -16,7 +16,7 @@ class BuboApp extends StatelessWidget {
     return MaterialApp(
       title: 'Bubolechka 2',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
       ),
       home: const BuboHomePage(),
     );

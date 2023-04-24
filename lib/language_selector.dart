@@ -2,7 +2,7 @@ import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/material.dart';
 
 /// Available languages
-const languages = ['BG', 'US', 'DE', 'ES'];
+const languages = ['BG', 'US', 'DE', 'ES', 'FR'];
 
 ///
 /// Callback function definition that will be used to notify the parent widget
@@ -42,7 +42,7 @@ class _LanguageSelectorState extends State<LanguageSelector> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> selectionWidgets = [];
+    List<Widget> selectionWidgets = [];;
     for (int i = 0; i < languages.length; i++) {
       selectionWidgets.add(__getAnimatedWidgetForLanguage(languages[i], i + 1));
     }
@@ -57,7 +57,7 @@ class _LanguageSelectorState extends State<LanguageSelector> {
 
   Widget __getAnimatedWidgetForLanguage(String language, int position) {
     return AnimatedPositioned(
-      bottom: _selectionIsOpen ? position * 60 : 0,
+      bottom: _selectionIsOpen ? position * 50 : 00,
       curve: Curves.easeInBack,
       left: 0,
       duration: const Duration(milliseconds: 300),

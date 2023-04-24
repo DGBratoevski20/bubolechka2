@@ -6,23 +6,23 @@ import '../models/bubo_category.dart';
 
 /// Original labels in german and bulgarian, english added as last value
 const labels = [
-  ["1", "Obst", "плодове", "vegetables", "ES"],
-  ["2", "Farben", "цветове", "colors"],
-  ["3", "Moebel", "мебели", "furniture"],
-  ["4", "Sachen", "дрехи", "clothes"],
-  ["5", "Spielzeug", "играчки", "toys"],
-  ["6", "Tiere", "животни", "animals"],
-  ["7", "Wilde Tiere", "диви животни", "wild animals"],
-  ["8", "Zahlen", "цифри", "digits"],
-  ["9", "Wetter", "времето", "weather"],
-  ["10", "Zu Hause", "вкъщи", "at home"],
-  ["11", "Natur", "природа", "nature"],
-  ["12", "Im Meer", "морето", "sea"],
-  ["13", "Am Strand", "на плажа", "on the beach"],
-  ["14", "Sport", "спорт", "sport"],
-  ["15", "Stadt", "град", "city"],
-  ["16", "Berufe", "професии", "professions"],
-  ["17", "Fahrzeuge", "транспрорт", "transport"]
+["1", "Obst", "плодове", "vegetables", "verduras","légumes"],
+["2", "Farben", "цветове", "colors" ,"colores","couleurs"],
+["3", "Moebel", "мебели", "furniture","muebles","meubles"],
+["4", "Sachen", "дрехи", "clothes","ropa","vêtements"],
+["5", "Spielzeug", "играчки", "toys","juguetes","jouets"],
+["6", "Tiere", "животни", "animals","animales","animaux"],
+["7", "Wilde Tiere", "диви животни", "wild animals","animales salvajes","animaux sauvages"],
+["8", "Zahlen", "цифри", "digits","dígitos","chiffres"],
+["9", "Wetter", "времето", "weather","clima","temps"],
+["10", "Zu Hause", "вкъщи", "at home","en casa","chez soi"],
+["11", "Natur", "природа", "nature","naturaleza","nature"],
+["12", "Im Meer", "морето", "sea","mar","mer"],
+["13", "Am Strand", "на плажа", "on the beach","en la playa","à la plage"],
+["14", "Sport", "спорт", "sport","deporte","sport"],
+["15", "Stadt", "град", "city","ciudad","ville"],
+["16", "Berufe", "професии", "professions","profesiones","métiers"],
+["17", "Fahrzeuge", "транспрорт", "transport","transporte","transport"]
 ];
 
 ///
@@ -37,6 +37,8 @@ List<BuboCategory> buboCategories = labels.map((categoryLabels) {
       {
         'us': categoryLabels[3],
         'de': categoryLabels[1],
-        'bg': categoryLabels[2]
+        'bg': categoryLabels[2],
+        'es': categoryLabels[4],
+        'fr': categoryLabels[5]
       });
 }).toList();
