@@ -62,7 +62,7 @@ class _BuboHomePageState extends State<BuboHomePage> {
               right: 30,
               bottom: 30,
               width: 54,
-              height: 300,
+              height: 400,
               child: LanguageSelector(onLanguageChange: (newLanguage) {
                 setState(() {
                   _language = newLanguage.toLowerCase();
@@ -118,11 +118,11 @@ class BuboCategoryListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Row(
-  mainAxisAlignment: MainAxisAlignment.start,
+      Column(
+  mainAxisAlignment: MainAxisAlignment.center,
   children: [
     RotatedBox(
-      quarterTurns: 3,
+      quarterTurns:0,
       child: Text(
         category.translatedLabels[language]!,
         style: const TextStyle(

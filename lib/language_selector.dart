@@ -57,7 +57,7 @@ class _LanguageSelectorState extends State<LanguageSelector> {
 
   Widget __getAnimatedWidgetForLanguage(String language, int position) {
     return AnimatedPositioned(
-      bottom: _selectionIsOpen ? position * 50 : 00,
+      bottom: _selectionIsOpen ? position * 60 : 0,
       curve: Curves.easeInBack,
       left: 0,
       duration: const Duration(milliseconds: 300),
