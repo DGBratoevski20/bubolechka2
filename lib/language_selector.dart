@@ -57,10 +57,9 @@ class _LanguageSelectorState extends State<LanguageSelector> {
 
   Widget __getAnimatedWidgetForLanguage(String language, int position) {
     return AnimatedPositioned(
-      bottom: _selectionIsOpen ? position * 60 : 0,
+      left: _selectionIsOpen ? position * 57 : 500,
       curve: Curves.easeInBack,
-      left: 0,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 500),
       child: GestureDetector(
           onTap: () => {
                 setState(() {
@@ -89,7 +88,7 @@ class _LanguageSelectorState extends State<LanguageSelector> {
 
   Widget _getControlWidget() {
     return Positioned(
-      left: 0,
+      left: 340,
       bottom: 0,
       width: 54,
       height: 54,
@@ -109,7 +108,7 @@ class _LanguageSelectorState extends State<LanguageSelector> {
                 const BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
             width: 54,
             height: 54,
-            child: const Icon(Icons.arrow_downward_sharp, color: Colors.white),
+            child: const Icon(Icons.arrow_left_sharp, color: Colors.white),
           ),
           duration: const Duration(milliseconds: 500),
           firstCurve: Curves.bounceIn,

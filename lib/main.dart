@@ -54,7 +54,7 @@ class _BuboHomePageState extends State<BuboHomePage> {
           ),
           Positioned(
             top: 30,
-            bottom: 100,
+            bottom: 20,
             left: 20,
             right: 20,
             child: BuboCategoryViewer(_language),
@@ -62,13 +62,15 @@ class _BuboHomePageState extends State<BuboHomePage> {
           Positioned(
               right: 30,
               bottom: 30,
-              width: 54,
-              height: 400,
+              width: 400,
+              height: 54,
               child: LanguageSelector(onLanguageChange: (newLanguage) {
                 setState(() {
                   _language = newLanguage.toLowerCase();
                 });
-              })),
+              }
+            )
+          ),
         ],
       ),
     );
@@ -79,7 +81,6 @@ class _BuboHomePageState extends State<BuboHomePage> {
 /// Category view for the main screen
 ///
 /// Gets all available categories and places them into a list view
-///
 ///
 class BuboCategoryViewer extends StatelessWidget {
   final String language;
@@ -105,27 +106,6 @@ class BuboCategoryViewer extends StatelessWidget {
         }).toList(),
       );
 
-      // List<List<BuboCategory>> grid = [];
-
-      // for (var i = 0; i < rows; i++) {
-      //   grid.add([]);
-      // }
-
-      // for (var i = 0; i < buboCategories.length; i++) {
-      //   grid[i % rows].add(buboCategories[i]);
-      // }
-
-      // var categoryRows = grid
-      //     .map((rowWithCategories) => Row(
-      //         //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      //         children: rowWithCategories
-      //             .map((category) => BuboCategoryListItem(language, category))
-      //             .toList()))
-      //     .toList();
-
-      // return ListView(
-      //   children: categoryRows,
-      // );
     } else {
       return ListView(
         children: buboCategories.map((buboCategory) {
@@ -133,24 +113,13 @@ class BuboCategoryViewer extends StatelessWidget {
         }).toList(),
       );
     }
-
-    // return ListView(
-    //   children: buboCategories.map((buboCategory) {
-    //     return BuboCategoryListItem(language, buboCategory);
-    //   }).toList(),
-    // );
   }
 }
 
 ///
 /// Widget for displaying a category on the main screen
 ///
-/// TODO: Модифицирайте този клас така, че да показва не само името на
-///       категорията, но и нейната картинка.
-///       Картинките за всяка категория могат да се вземат по следният начин:
-///       Image.asset(category.image)
-///
-///
+
 class BuboCategoryListItem extends StatelessWidget {
   final String language;
   final BuboCategory category;
@@ -173,7 +142,7 @@ class BuboCategoryListItem extends StatelessWidget {
             color: Colors.purple),
       ),
     ),
-    Image.asset(category.image, width: 250, fit: BoxFit.fill),
+    Image.asset(category.image, width: 250, fit: BoxFit.fitHeight),
   ],
 ),
       Container(
@@ -197,27 +166,30 @@ class BuboCategoryListItem extends StatelessWidget {
                   ? category.translatedLabels[language]!
                   : 'Not available',
               style: const TextStyle(color: Colors.white, fontSize: 30),
-            ))),
+            )
+          )
+        ),
       ],
     );
   }
 
   Widget _viewWithContainer() {
     return Container(
-        width: 250,
-        height: 250,
-        decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage(category.image))),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 150, 0, 0),
-          child: Center(
-            child: Text(
-              category.translatedLabels[language] != null
-                  ? category.translatedLabels[language]!
-                  : 'Not available',
-              style: const TextStyle(color: Colors.white, fontSize: 30),
-            ),
+      width: 250,
+      height: 250,
+      decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage(category.image))),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 150, 0, 0),
+        child: Center(
+          child: Text(
+            category.translatedLabels[language] != null
+                ? category.translatedLabels[language]!
+                : 'Not available',
+            style: const TextStyle(color: Colors.white, fontSize: 30),
           ),
-        ));
+        ),
+      )
+    );
   }
 }

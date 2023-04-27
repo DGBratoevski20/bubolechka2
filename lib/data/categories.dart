@@ -22,7 +22,7 @@ const labels = [
 ["14", "Sport", "спорт", "sport","deporte","sport"],
 ["15", "Stadt", "град", "city","ciudad","ville"],
 ["16", "Berufe", "професии", "professions","profesiones","métiers"],
-["17", "Fahrzeuge", "транспрорт", "transport","transporte","transport"]
+["17", "Fahrzeuge", "транспорт", "transport","transporte","transport"]
 ];
 
 ///
