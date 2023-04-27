@@ -14,6 +14,7 @@ class BuboApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Bubolechka 2',
       theme: ThemeData(
         primarySwatch: Colors.orange,
@@ -68,12 +69,6 @@ class _BuboHomePageState extends State<BuboHomePage> {
                   _language = newLanguage.toLowerCase();
                 });
               })),
-          Positioned(
-            bottom: 30,
-            left: 30,
-            width: 200,
-            child: Image.asset('assets/bubo_logo.png'),
-          ),
         ],
       ),
     );
@@ -92,11 +87,58 @@ class BuboCategoryViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: buboCategories.map((buboCategory) {
-        return BuboCategoryListItem(language, buboCategory);
-      }).toList(),
-    );
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+
+    var widthPerCategory = 300;
+    if (width > widthPerCategory) {
+      var itemsPerRow = (width / widthPerCategory).floor();
+      var rows = (buboCategories.length / itemsPerRow).ceil();
+      //print('items per row: $itemsPerRow, rows: $rows');
+
+      return GridView.count(
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 0,
+        crossAxisCount: itemsPerRow,
+        children: buboCategories.map((buboCategory) {
+          return BuboCategoryListItem(language, buboCategory);
+        }).toList(),
+      );
+
+      // List<List<BuboCategory>> grid = [];
+
+      // for (var i = 0; i < rows; i++) {
+      //   grid.add([]);
+      // }
+
+      // for (var i = 0; i < buboCategories.length; i++) {
+      //   grid[i % rows].add(buboCategories[i]);
+      // }
+
+      // var categoryRows = grid
+      //     .map((rowWithCategories) => Row(
+      //         //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //         children: rowWithCategories
+      //             .map((category) => BuboCategoryListItem(language, category))
+      //             .toList()))
+      //     .toList();
+
+      // return ListView(
+      //   children: categoryRows,
+      // );
+    } else {
+      return ListView(
+        children: buboCategories.map((buboCategory) {
+          return BuboCategoryListItem(language, buboCategory);
+        }).toList(),
+      );
+    }
+
+    // return ListView(
+    //   children: buboCategories.map((buboCategory) {
+    //     return BuboCategoryListItem(language, buboCategory);
+    //   }).toList(),
+    // );
   }
 }
 
@@ -135,7 +177,7 @@ class BuboCategoryListItem extends StatelessWidget {
   ],
 ),
       Container(
-        height: 10,
+        height: 20,
       )
       //_viewWithStack(),
     ]);
